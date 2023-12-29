@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   client-dev:
+    container_name: gala-client-dev
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -12,7 +13,9 @@ services:
       - /app/.next
     env_file:
       - .env.local
-    cpus: '0.2'
+    cpus: '0.4'
+    restart: always
+    command: npm run dev
 
   client-prod:
     build:
