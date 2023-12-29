@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  client-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3010:3000'
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    env_file:
+      - .env.local
+    cpus: '0.2'
+
+  client-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - '4000:4000'
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    env_file:
+      - .env
