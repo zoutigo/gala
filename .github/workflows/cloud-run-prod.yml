@@ -33,7 +33,7 @@ jobs:
 
     - name: Build and tag image
       run: |-
-        docker build . --tag "europe-west1-docker.pkg.dev/${CLOUD_RUN_PROJECT_ID}/${REPO_NAME}/${REPO_NAME}:${GITHUB_SHA}"
+        docker build . --file Dockerfile.prod --tag "europe-west1-docker.pkg.dev/${CLOUD_RUN_PROJECT_ID}/${REPO_NAME}/${REPO_NAME}:${GITHUB_SHA}"
 
     - name: Push image to Artifact Registry
       run: |-
